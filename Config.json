@@ -1,0 +1,38 @@
+{
+  ///浏览器最多几个网页
+  "MaxTab": "4",
+  //网站标题
+  "Title": "京东登录自动获取cookie",
+  //回收时间分钟 不填默认3分钟
+  "Closetime": "5",
+  //Opencv镜像地址  刚刚镜像的地址
+  "Captchaurl": "http://127.0.0.1:5703",
+  //网站公告
+  "Announcement": "<link rel=\"stylesheet\" href=\"https://www.aobacore.com/css/style-card.css\"><div class=\"card\"><h1>JD代挂</h1> <br><red>本项目部分脚本收集于互联网。为了您的财产安全，请务必关闭京东免密支付。</red><h2>（京东-设置-支付设置-支付验证设置）</h2>1. 东东农场种4级的水果价值50元，完成后不兑换水果，可以在京东app里面当做无门槛红包用价值50元<br>2.东东萌宠同理，在京东app里面使用价值20元<br>3. 京喜工厂东西生产完，有有效期，过期不领取失效<br>4.东东健康社区，经常有价值1元的好东西，比如口罩、维生素等等<br>5.京东赚赚红包每月月1号0点抢，只能在京东app使用，建议聚多一点在抢<br><green>短信登录有效期一个月，请保存网站，失效后重新登录</green>",
+  ///开启打印等待日志卡短信验证登陆 可开启 拿到日志群里回复 默认不要填写
+  "Debug": "",
+  ///自动滑块次数5次 5次后手动滑块 可设置为0默认手动滑块
+  "AutoCaptchaCount": "5",
+  ///XDD PLUS Url  http://IP地址:端口/api/login/smslogin
+  "XDDurl": "",
+  ///xddToken
+  "XDDToken": "",
+  ///青龙配置  注意对接XDD 对接芝士 设置为"Config":[]
+  "Config": [
+    {
+      //序号必填从1 开始
+      "QLkey": 1,
+      //服务器名称
+      "QLName": "N1",
+      //青龙地址
+      "QLurl": "http://127.0.0.1:5700",
+      //青龙2,9 OpenApi Client ID
+      "QL_CLIENTID": "",
+      //青龙2,9 OpenApi Client Secret
+      "QL_SECRET": "",
+      //CK最大数量
+      "QL_CAPACITY": 30,
+      "QRurl": ""
+    }
+  ]
+}
