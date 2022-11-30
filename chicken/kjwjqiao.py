@@ -40,21 +40,31 @@ def login(usr, pwd):
         List.append(f"金币：{status.get('credit')}")
         List.append(f"等级：{status.get('lv').get('lv').get('name')}")
         token = status.get('token')
-        check_url = 'https://www.kejiwanjia.com/wp-json/b2/v1/userMission'
-        check_head = {
+        get_head = {
             'authorization': f'Bearer {token}',
             'origin': 'https://www.kejiwanjia.com',
-            'referer': 'https://www.kejiwanjia.com/task',
+            'referer': 'https://www.kejiwanjia.com/newsflashes',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'zh-CN,zh;q=0.9',
             'user-agent': 'Mozilla/5.0 (Linux; Android 10; PBEM00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.52 Mobile Safari/537.36'
-
         }
-        resp = session.post(check_url, headers=check_head)
-        if resp.status_code == 200:
-            info = resp.json()
-            if type(info) == str:
-                List.append(f"已经签到：{info}金币")
-            else:
-                List.append(f"签到成功：{info.get('credit')}金币")
+        respg = session.post('https://www.kejiwanjia.com/wp-json/b2/v1/getUserMission',headers=get_head)
+        if respg.status_code == 200:
+            check_url = 'https://www.kejiwanjia.com/wp-json/b2/v1/userMission'
+            check_head = {
+                'authorization': f'Bearer {token}',
+                'origin': 'https://www.kejiwanjia.com',
+                'referer': 'https://www.kejiwanjia.com/task',
+                'user-agent': 'Mozilla/5.0 (Linux; Android 10; PBEM00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.52 Mobile Safari/537.36'
+
+            }
+            resp = session.post(check_url, headers=check_head)
+            if resp.status_code == 200:
+                info = resp.json()
+                if type(info) == str:
+                    List.append(f"已经签到：{info}金币")
+                else:
+                    List.append(f"签到成功：{info.get('credit')}金币")
     else:
         List.append('账号登陆失败: 账号或密码错误')
 
